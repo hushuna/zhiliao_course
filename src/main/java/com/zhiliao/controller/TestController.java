@@ -16,6 +16,7 @@ public class TestController {
     @Autowired
     private User user;
 
+    @RequestMapping(value = "/getUser")
     public Result getUser(){
         return Result.createSuccess("200",user.getUser());
     }
