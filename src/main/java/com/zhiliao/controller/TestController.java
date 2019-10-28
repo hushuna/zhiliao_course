@@ -1,5 +1,11 @@
 package com.zhiliao.controller;
 
+
+import com.zhiliao.comment.Result;
+import com.zhiliao.service.User;
+import com.zhiliao.vo.UserVO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,4 +25,13 @@ public class TestController {
         return "胡淑娜";
     }
 
+
+
+    @Autowired
+    private User user;
+
+    @RequestMapping(value = "/getUser")
+    public Result getUser(){
+        return Result.createSuccess("200",user.getUser());
+    }
 }
